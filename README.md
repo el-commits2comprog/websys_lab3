@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PIZZA by the SLICE — Online Order Form
 **Web Systems and Technology | Laboratory 3**
 
