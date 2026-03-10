@@ -1,0 +1,414 @@
+/* ══════════════════════════════════════════════
+   PIZZA by the SLICE — Fun Retro Diner Style
+   style.css
+══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ── RESET ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── VARIABLES ────────────────────────────────────────── */
+:root {
+  --yellow:     #FFD932;
+  --orange:     #FF6B2B;
+  --red:        #E8192C;
+  --green:      #2BBD6E;
+  --blue:       #1A73E8;
+  --dark:       #1A1008;
+  --white:      #FFFDF5;
+  --cream:      #FFF8E7;
+  --outline:    3px solid var(--dark);
+  --radius-lg:  18px;
+  --radius-md:  12px;
+  --radius-sm:  8px;
+  --shadow:     5px 5px 0px var(--dark);
+  --shadow-sm:  3px 3px 0px var(--dark);
+}
+
+/* ── BODY & BG ────────────────────────────────────────── */
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--yellow);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  color: var(--dark);
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+}
+
+/* ── PAGE HEADER ──────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  margin-bottom: 44px;
+  animation: popIn .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+.page-header .logo-tag {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Fredoka One', cursive;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: var(--outline);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+.page-header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: var(--dark);
+  letter-spacing: .01em;
+  text-shadow: 6px 6px 0 var(--orange);
+}
+
+.page-header h1 .pizza {
+  color: var(--red);
+  text-shadow: 6px 6px 0 var(--dark);
+}
+
+.page-header h1 .bythe {
+  color: var(--dark);
+  text-shadow: 6px 6px 0 var(--orange);
+}
+
+.page-header h1 .slice {
+  color: var(--red);
+  text-shadow: 6px 6px 0 var(--dark);
+}
+
+.page-header p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  opacity: .7;
+}
+
+/* ── SPINNING PIZZA DECO ──────────────────────────────── */
+.pizza-deco {
+  font-size: 2.8rem;
+  display: inline-block;
+  margin-bottom: 6px;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── FORM ─────────────────────────────────────────────── */
+form {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── CARD ─────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: var(--outline);
+  box-shadow: var(--shadow);
+  padding: 28px 32px;
+  animation: slideUp .4s cubic-bezier(.34,1.56,.64,1) both;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 7px 7px 0 var(--dark);
+}
+
+.card:nth-child(1) { animation-delay: .05s; }
+.card:nth-child(2) { animation-delay: .10s; background: #FFF0F0; }
+.card:nth-child(3) { animation-delay: .15s; background: #F0FFF6; }
+.card:nth-child(4) { animation-delay: .20s; background: #F0F6FF; }
+.card:nth-child(5) { animation-delay: .25s; background: #FFFBF0; }
+.card:nth-child(6) { animation-delay: .30s; background: #FDF0FF; }
+
+/* ── CARD TITLE ───────────────────────────────────────── */
+.card-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px dashed rgba(0,0,0,.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title .icon {
+  width: 36px; height: 36px;
+  background: var(--yellow);
+  border: var(--outline);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 17px;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+/* ── GRID ─────────────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+.col-full { grid-column: 1 / -1; }
+
+/* ── FIELD ────────────────────────────────────────────── */
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+.field label {
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.field label .note {
+  font-size: .72rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ── INPUTS ───────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: var(--outline);
+  border-radius: var(--radius-sm);
+  font-family: 'Nunito', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--dark);
+  background: var(--cream);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  transition: transform .1s, box-shadow .1s, border-color .1s;
+}
+
+input:focus, select:focus, textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 var(--orange);
+  border-color: var(--orange);
+  background: #fff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #bbb;
+  font-weight: 600;
+}
+
+/* ── RADIO / CHECKBOX PILLS ───────────────────────────── */
+.radio-group, .check-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.radio-group label, .check-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cream);
+  border: var(--outline);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: .88rem;
+  font-weight: 800;
+  color: var(--dark);
+  box-shadow: var(--shadow-sm);
+  transition: transform .1s cubic-bezier(.34,1.56,.64,1), box-shadow .1s, background .15s;
+  user-select: none;
+}
+
+.radio-group label:hover, .check-group label:hover {
+  background: var(--yellow);
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 4px 4px 0 var(--dark);
+}
+
+.radio-group input[type="radio"],
+.check-group input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--orange);
+  cursor: pointer;
+}
+
+/* Locked topping */
+.check-group label.locked {
+  opacity: .5;
+  cursor: not-allowed;
+  background: #eee;
+}
+
+.check-group label.locked:hover {
+  transform: none;
+  background: #eee;
+}
+
+/* ── SECTION LABEL ────────────────────────────────────── */
+.section-label {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+/* ── FIELDSET ─────────────────────────────────────────── */
+fieldset {
+  border: var(--outline);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  background: rgba(255,255,255,.5);
+}
+
+legend {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05rem;
+  color: var(--blue);
+  background: var(--white);
+  border: var(--outline);
+  border-radius: 8px;
+  padding: 3px 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── TABLE ────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: .92rem;
+  border: var(--outline);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+thead tr { background: var(--orange); }
+
+thead th {
+  padding: 13px 18px;
+  text-align: left;
+  font-family: 'Fredoka One', cursive;
+  font-size: .9rem;
+  color: var(--white);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: var(--outline);
+}
+
+tbody tr:nth-child(even) { background: var(--cream); }
+tbody tr:nth-child(odd)  { background: var(--white); }
+tbody tr { transition: background .12s; }
+tbody tr:hover { background: #FFF3CD; }
+
+tbody td {
+  padding: 11px 18px;
+  border-bottom: 2px dashed rgba(0,0,0,.1);
+  font-weight: 700;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+.price {
+  color: var(--red);
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05rem;
+}
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.btn-row {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+}
+
+button {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  letter-spacing: .04em;
+  border: var(--outline);
+  border-radius: 999px;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s;
+}
+
+button[type="submit"] {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 7px 7px 0 var(--dark);
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 2px 2px 0 var(--dark);
+}
+
+button[type="reset"] {
+  background: var(--white);
+  color: var(--dark);
+  box-shadow: var(--shadow-sm);
+}
+
+button[type="reset"]:hover {
+  transform: translateY(-3px) rotate(1deg);
+  box-shadow: 5px 5px 0 var(--dark);
+  background: #f0f0f0;
+}
+
+/* ── ANIMATIONS ───────────────────────────────────────── */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) rotate(.5deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .card { padding: 22px 18px; }
+  .btn-row { justify-content: stretch; }
+  button { width: 100%; text-align: center; }
+  .page-header h1 { font-size: 2.8rem; }
+}
