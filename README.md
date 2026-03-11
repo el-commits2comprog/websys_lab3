@@ -10,8 +10,8 @@ An HTML form for a pizza ordering system built using only HTML and CSS. No JavaS
 - `style.css` — Stylesheet for the form
 
 ## Group Members
-- Perea, Alrich John — Personal Details & Pizza Customization 
-- Moreno, Sophia Elysse — Delivery Method & Payment
+- Moreno, Sophia Elysse — Personal Details & Pizza Customization 
+- Perea, Alrich John — Delivery Method & Payment
 - Kelly, Lovely Joy — Order Summary Table, Buttons & Integration (you)
 
 ## How to Run

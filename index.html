@@ -21,94 +21,61 @@
   ══════════════════════════════════════════════ -->
   <form action="#" method="post" id="pizza-order-form">
 
-    <!-- ── SECTION 1: PERSONAL DETAILS (Member 1) ───────── -->
+    <!-- SECTION 1: PERSONAL DETAILS -->
     <div class="card">
       <div class="card-title"><span class="icon"></span> Personal Details</div>
       <div class="grid-2">
 
-        <!-- Full Name -->
+        <!-- full name -->
         <div class="field col-full">
           <label for="full-name">Full Name</label>
-          <input
-            type="text"
-            id="full-name"
-            name="full-name"
+          <input type="text" id="full-name" name="full-name"
             placeholder="e.g. Juan dela Cruz"
-            required
-            minlength="5"
-            maxlength="60"
-          />
+            required minlength="5" maxlength="60" />
         </div>
 
-        <!-- Email -->
+        <!-- email -->
         <div class="field">
           <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            required
-          />
+          <input type="email" id="email" name="email"
+            placeholder="you@example.com" required />
         </div>
 
-        <!-- Phone -->
+        <!-- phone - used type number so only numbers are accepted -->
         <div class="field">
           <label for="phone">Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
+          <input type="number" id="phone" name="phone"
             placeholder="e.g. 09123456789"
-            pattern="[0-9]{7,11}"
-            minlength="7"
-            maxlength="11"
-            required
-          />
+            pattern="[0-9]{7,11}" minlength="7" maxlength="11" required />
         </div>
 
-        <!-- Age -->
+        <!-- age -->
         <div class="field">
           <label for="age">Age</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            placeholder="13 – 99"
-            min="13"
-            max="99"
-            required
-          />
+          <input type="number" id="age" name="age"
+            placeholder="13 - 99" min="13" max="99" required />
         </div>
 
       </div>
     </div>
 
-    <!-- ── SECTION 2: PIZZA CUSTOMIZATION (Member 1) ─────── -->
+    <!-- SECTION 2: PIZZA CUSTOMIZATION -->
     <div class="card">
       <div class="card-title"><span class="icon"></span> Pizza Customization</div>
       <div class="grid-2">
 
-        <!-- Pizza Size -->
+        <!-- pizza size -->
         <div class="field col-full">
           <p class="section-label">Pizza Size</p>
           <div class="radio-group">
-            <label>
-              <input type="radio" name="pizza-size" value="small" /> Small
-            </label>
-            <label>
-              <input type="radio" name="pizza-size" value="medium" checked /> Medium
-            </label>
-            <label>
-              <input type="radio" name="pizza-size" value="large" /> Large
-            </label>
-            <label>
-              <input type="radio" name="pizza-size" value="extra-large" /> Extra Large
-            </label>
+            <label><input type="radio" name="pizza-size" value="small" /> Small</label>
+            <label><input type="radio" name="pizza-size" value="medium" checked /> Medium</label>
+            <label><input type="radio" name="pizza-size" value="large" /> Large</label>
+            <label><input type="radio" name="pizza-size" value="extra-large" /> Extra Large</label>
           </div>
         </div>
 
-        <!-- Crust Type -->
+        <!-- crust -->
         <div class="field">
           <label for="crust-type">Crust Type</label>
           <select id="crust-type" name="crust-type" required>
@@ -120,7 +87,7 @@
           </select>
         </div>
 
-        <!-- Sauce -->
+        <!-- sauce -->
         <div class="field">
           <label for="sauce">Sauce</label>
           <select id="sauce" name="sauce" required>
@@ -135,33 +102,23 @@
           </select>
         </div>
 
-        <!-- Toppings -->
+        <!-- toppings - cheese is always included so I added a hidden input because disabled checkbox doesnt submit -->
         <div class="field col-full">
           <p class="section-label">Toppings</p>
           <div class="check-group">
             <label class="locked">
               <input type="checkbox" name="toppings" value="cheese" checked disabled /> Cheese
+              <input type="hidden" name="toppings" value="cheese" />
             </label>
+            <label><input type="checkbox" name="toppings" value="pepperoni" /> Pepperoni</label>
+            <label><input type="checkbox" name="toppings" value="mushrooms" /> Mushrooms</label>
+            <label><input type="checkbox" name="toppings" value="onions" /> Onions</label>
+            <label><input type="checkbox" name="toppings" value="bell-pepper" /> Bell Pepper</label>
+            <label><input type="checkbox" name="toppings" value="olives" /> Olives</label>
+            <label><input type="checkbox" name="toppings" value="bacon" /> Bacon</label>
             <label>
-              <input type="checkbox" name="toppings" value="pepperoni" /> Pepperoni
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="mushrooms" /> Mushrooms
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="onions" /> Onions
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="bell-pepper" /> Bell Pepper
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="olives" /> Olives
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="bacon" /> Bacon
-            </label>
-            <label>
-              <input type="checkbox" name="toppings" value="pineapple" title="Warning: Pineapple on pizza is controversial!" /> Pineapple 🍍
+              <input type="checkbox" name="toppings" value="pineapple"
+                title="Warning: Pineapple on pizza is controversial!" /> Pineapple
             </label>
           </div>
         </div>
